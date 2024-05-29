@@ -1,0 +1,11 @@
+---
+title: "Quarto-forms-teachr Example"
+filters:
+  - quarto-forms-teachr
+---
+
+## Heading
+
+This filter adds formatting to heading text.
+
+
