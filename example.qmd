@@ -2,10 +2,33 @@
 title: "Quarto-forms-teachr Example"
 filters:
   - quarto-forms-teachr
+format: html
+execute:
+  keep-md: true
 ---
 
 ## Heading
 
 This filter adds formatting to heading text.
 
+Here's the quiz!
 
+### Question 1
+
+How many people does it take to unscrew a bulb
+
+:::{.quiz}
+- [ ] [Option 1]{hint="Try the other"}
+- [ ] [Option 2]{hint="Try the other"}
+- [X] [Option 3]{hint="Correct!"}
+:::
+
+### Question 2
+
+How long does it take to watch paint dry
+
+:::{.quiz}
+- [X] [Opinion i]{hint="Yes Correct"}
+- [ ] [Opinion ii]{hint="Try the other"}
+- [ ] [Opinion iii]{hint="Try the other"}
+:::
