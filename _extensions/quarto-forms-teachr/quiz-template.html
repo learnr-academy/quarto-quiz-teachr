@@ -1,0 +1,59 @@
+<div id = "qforms-quiz-{{QUIZCOUNTER}}" class = "radio-group">
+</div>
+
+<script>
+  var quiz_container = document.getElementById("qforms-quiz-{{QUIZCOUNTER}}");
+  var questions = "{{QUIZQUESTIONS}}";
+  var hints = "{{QUIZHINTS}}"
+  console.log("hints", hints)
+  questions = questions.split(",");
+  hints = hints.split(",");
+  
+    for([index, question] of questions.entries()) {
+      var radio_row = document.createElement("div");
+
+      var label = document.createElement("label");
+      label.setAttribute("class", "radio-label");
+      label.setAttribute("for", question);
+      label.textContent = question;
+
+      var input_elem = document.createElement("input");
+      input_elem.setAttribute("type", "radio");
+      input_elem.setAttribute("class", "quiz-radio");
+      input_elem.setAttribute("name", `qforms-quiz-name-{{QUIZCOUNTER}}`);
+      input_elem.setAttribute("value", (index+1));
+      
+      radio_row.append(input_elem, label);
+      quiz_container.append(radio_row);
+  }
+
+  var submit_btn = document.createElement("input")
+  submit_btn.setAttribute("type", "button")
+  submit_btn.setAttribute("id", "qforms-quiz-submit-{{QUIZCOUNTER}}")
+  submit_btn.setAttribute("class", "submit-btn")
+  submit_btn.setAttribute("value", "Submit")
+  submit_btn.addEventListener("click", event => {
+    var selected = document.querySelector('input[name=qforms-quiz-name-{{QUIZCOUNTER}}]:checked')
+    var results = document.getElementById("qforms-quiz-results-{{QUIZCOUNTER}}")
+    if(selected != undefined) {
+      console.log(selected.value)
+      var success = selected.value == "{{QUIZSOLUTIONS}}".split(",")[0] // Need to fix for multiples
+      results.classList.toggle(success ? "success": "failure")
+      results.textContent = success ? "Success": hints[index]
+    }
+    
+  })
+  quiz_container.append(submit_btn)
+
+  var result_section = document.createElement("p")
+  result_section.setAttribute("id", "qforms-quiz-results-{{QUIZCOUNTER}}")
+  result_section.setAttribute("class", "result-section")
+  quiz_container.append(result_section)
+</script>
+
+<style>
+  input.quiz-radio {
+    margin: 0.4rem;
+  }
+</style>
+
