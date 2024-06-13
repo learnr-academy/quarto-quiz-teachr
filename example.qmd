@@ -17,9 +17,9 @@ Here's the quiz!
 
 How many people does it take to unscrew a bulb
 
-:::{.quiz}
+:::{.quiz-multichoice}
 - [ ] [Option 1]{hint="Try the other"}
-- [ ] [Option 2]{hint="Try the other"}
+- [X] [Option 2]{hint="Correct!"}
 - [X] [Option 3]{hint="Correct!"}
 :::
 
@@ -27,7 +27,7 @@ How many people does it take to unscrew a bulb
 
 How long does it take to watch paint dry
 
-:::{.quiz}
+:::{.quiz-singlechoice}
 - [X] [Opinion i]{hint="Yes Correct"}
 - [ ] [Opinion ii]{hint="Try the other"}
 - [ ] [Opinion iii]{hint="Try the other"}

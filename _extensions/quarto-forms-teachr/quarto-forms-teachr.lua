@@ -60,7 +60,9 @@ question_counter = 0
 function Div(div)
 
   -- Find the divs that have the class quiz
-  if div.classes:includes("quiz") then
+  local has_schoice = div.classes:includes("quiz-singlechoice")
+  local has_mchoice = div.classes:includes("quiz-multichoice")
+  if has_schoice or has_mchoice then
     -- Log the output for debug
 
     local quiz_container = div.content[1]
@@ -95,7 +97,8 @@ function Div(div)
         ["QUIZQUESTIONS"] = prepSubstitutions(questions),
         ["QUIZSOLUTIONS"] = prepSubstitutions(solutions),
         ["QUIZHINTS"] = prepSubstitutions(hints),
-        ["QUIZCOUNTER"] = question_counter
+        ["QUIZCOUNTER"] = question_counter,
+        ["QUIZTYPE"] = (has_mchoice and {"checkbox"} or {"radio"})[1]
       }
 
       code_template = quizTemplateFile()

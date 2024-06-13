@@ -18,7 +18,7 @@
       label.textContent = question;
 
       var input_elem = document.createElement("input");
-      input_elem.setAttribute("type", "radio");
+      input_elem.setAttribute("type", "{{QUIZTYPE}}");
       input_elem.setAttribute("class", "quiz-radio");
       input_elem.setAttribute("name", `qforms-quiz-name-{{QUIZCOUNTER}}`);
       input_elem.setAttribute("value", (index+1));
