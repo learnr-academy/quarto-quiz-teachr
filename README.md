@@ -6,7 +6,7 @@ This extension adds quiz elements to an existing quarto document which provide i
 ## Installing
 
 ```bash
-quarto add learnr-academy/quarto-forms-teachr
+quarto add learnr-academy/quarto-quiz-teachr
 ```
 
 This will install the extension under the `_extensions` subdirectory.
